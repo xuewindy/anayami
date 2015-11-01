@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserLogin;
+use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Mail;
 
 class TestController extends Controller
 {
@@ -27,6 +32,7 @@ class TestController extends Controller
     public function create()
     {
         //
+        return view("test.form");
     }
 
     /**
@@ -83,5 +89,24 @@ class TestController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public  function formprocess(Request $request)
+    {
+        $email = $request->input('email');
+        echo $email;
+//        dd($request);
+        $tempencrypt = Crypt::encrypt($email);
+//        echo $tempencrypt;
+//        echo '';
+        $tempdecrypt = Crypt::decrypt($tempencrypt);
+        echo $tempdecrypt;
+        $response = Event::fire(new UserLogin());
+        //登录后注册发邮件
+        $data = ['email' => $email, 'name'=>'xuegeng', 'uid'=>1, 'activationcode'=>1];
+        Mail::send('activemail', $data, function($message) use($data)
+        {
+            $message->to($data['email'], $data['name'])->subject('欢迎注册我们的网站，请激活您的账号！');
+        });
+
     }
 }

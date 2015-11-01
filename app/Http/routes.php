@@ -16,10 +16,6 @@ Route::get('/', function () {
 });
 Route::get('/article',function()
 {
-//    $title= '<span style="color: red">文章</span>标题1';
-//    $intro='文章的简介';
-//    return view('articles.list',compact('title','ntro'));
-////    echo 'Fantasy';
     $first = 'jelly';
     $last = 'bool';
     return view('articles.list',compact('first','last'));
@@ -33,5 +29,7 @@ Route::group(['prefix' => 'admin'],function()
 });
 Route::group(['prefix' => 'test'],function()
 {
-    Route::get('welcome','TestController@index');
+//    Route::get('welcome','TestController@index');
+    Route::get('/form','TestController@create');
+    Route::post('/formprocess','TestController@formprocess');
 });
