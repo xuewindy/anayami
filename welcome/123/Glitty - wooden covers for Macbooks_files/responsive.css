@@ -1,0 +1,152 @@
+
+.image-container {
+  margin:-20px;
+}
+
+/* General */
+@media only screen and (max-width: 767px) {
+  body{
+    padding-top:75px; /* fixed navigation height */
+  }
+  .right {
+    float:left !important;
+  }
+
+  h2.line {
+    text-align:left;
+  }
+
+  h2.line span {
+    padding-left:0;
+  }
+  .image-container {
+    padding:0;
+    margin:-20px 0 0;
+  }
+}
+
+
+/* Newsletter modal */
+@media only screen and (max-width: 767px) {
+  #signup {
+    width:100%;
+    padding:40px 20px;
+  }
+}
+
+
+/* Main Nav */
+@media only screen and (max-width: 767px) {
+  .main-nav {
+    top:0 !important;
+  }
+
+  .small-height .mobile-nav {
+    line-height:55px;
+  }
+
+  .transparent .mobile-nav {
+    line-height:100px;
+  }
+
+  .transparent.small-height .mobile-nav {
+    line-height:55px;
+  }
+
+  .cart-panel-content {
+    padding:30px 20px;
+  }
+}
+@media only screen and (max-width: 768px) {
+
+  .small-height .mobile-nav {
+    line-height:55px;
+  }
+
+  .transparent .mobile-nav {
+    line-height:100px;
+  }
+
+  .transparent.small-height .mobile-nav {
+    line-height:55px;
+  }
+  .cart-btn {
+    padding-right:20px;
+  }
+
+  .cart-count {
+    position: absolute;
+    top: 1px;
+    right: 15px;
+    font-size: 16px;
+  }
+
+  .breadcrumbs {
+    margin-top:20px;
+  }
+}
+
+
+/* Items */
+@media only screen and (max-width: 768px) {  
+  .item:hover .image .overlay {
+    opacity: 0;
+    display:none;
+  }
+  
+  .item a {
+    display:block;
+  }
+}
+
+
+/* Product */
+@media only screen and (max-width: 767px) {  
+  .product-info .wishlist {
+    margin:2px 0 0 10px;
+  }
+}
+
+
+/* To top */
+@media only screen and (min-width: 768px) {
+  .cd-top {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .cd-top {
+    height: 60px;
+    width: 60px;
+    right: 30px;
+    bottom: 30px;
+  }
+}
+
+
+/* Cart page */
+@media only screen and (max-width: 768px) {
+  .cart-items .image {
+    width:30%;
+  }
+  .cart-items .image img {
+    max-width:100%;
+  }
+
+  .cart-items .info {
+    width:70%;
+  }
+
+  .cart-item span.title {
+    font-size:12px;
+    margin-top:0;
+  }
+
+  .cart-items .cart-item .delete {
+    right: -5px;
+    top: -6px;
+    background: #FFF;
+    padding: 5px;
+  }
+}
