@@ -9,7 +9,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use App\User;
 
 class TestController extends Controller
 {
@@ -96,17 +98,22 @@ class TestController extends Controller
         echo $email;
 //        dd($request);
         $tempencrypt = Crypt::encrypt($email);
-//        echo $tempencrypt;
-//        echo '';
+        echo $tempencrypt;
+        echo '<br>';
         $tempdecrypt = Crypt::decrypt($tempencrypt);
-        echo $tempdecrypt;
+//        echo $tempdecrypt;
+
+        echo '<br>';
+        echo Hash::make($email);
         $response = Event::fire(new UserLogin());
+        $user = User::find(1);
+        dd($user);
         //登录后注册发邮件
-        $data = ['email' => $email, 'name'=>'xuegeng', 'uid'=>1, 'activationcode'=>1];
-        Mail::send('activemail', $data, function($message) use($data)
-        {
-            $message->to($data['email'], $data['name'])->subject('欢迎注册我们的网站，请激活您的账号！');
-        });
+//        $data = ['email' => $email, 'name'=>'xuegeng', 'uid'=>1, 'activationcode'=>1];
+//        Mail::send('activemail', $data, function($message) use($data)
+//        {
+//            $message->to($data['email'], $data['name'])->subject('欢迎注册我们的网站，请激活您的账号！');
+//        });
 
     }
 }

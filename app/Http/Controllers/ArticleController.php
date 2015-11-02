@@ -41,6 +41,12 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         //
+        $article = new Article();
+        $article->body = $request->input('body');
+        $article->title = $request->input('title');
+        $article->save();
+        $articles = Article::all();
+        dd($articles);
     }
 
     /**
@@ -53,8 +59,9 @@ class ArticleController extends Controller
     {
         //
         $article = Article::find($id);
-        dd($article);
-//        return view('atricles.show',compact('$article'));
+//        dd($article);
+        return view('atricles.show',compact('$article'));
+
 
 
     }

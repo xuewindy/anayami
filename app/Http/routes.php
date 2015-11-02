@@ -25,6 +25,7 @@ Route::get('articles/{id}','ArticleController@show');
 Route::group(['prefix' => 'admin'],function()
 {
    Route::get('/create','ArticleController@create');
+    Route::post('/articles','ArticleController@store');
 
 });
 Route::group(['prefix' => 'test'],function()
